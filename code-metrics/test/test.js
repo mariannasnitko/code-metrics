@@ -12,9 +12,7 @@ function calculateSum(numbers) {
 console.log(calculateSum([1, 2, 3, 4, 5])); 
 
 
-function generateRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+function generateRandomNumber(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
 console.log(generateRandomNumber(1, 100)); 
 

@@ -41,15 +41,11 @@ const getAllText = (files) => {
 
 // Сheck lines for matches with provided regular expressions
 const checkLinesByRegex = (str, regexSet) => {
-  let count = 0;
-  for (let i = 0; i < regexSet.length; i++) {
-    matches = [...str.matchAll(regexSet[i])];
-    if (matches[0]) {
-      count += 1;
-      break;
-    }
-  }
-  return count;
+  return regexSet.reduce((count, regexStr) => {
+    const regex = new RegExp(regexStr, "g");
+    const matches = str.match(regex);
+    return count + (matches ? matches.length : 0);
+  }, 0);
 };
 
 const getMetrics = (text) => {
